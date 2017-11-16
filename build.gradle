@@ -1,0 +1,76 @@
+apply plugin: 'groovy'
+apply plugin: 'com.bmuschko.nexus'
+
+
+version = '0.0.1'
+group = 'com.chuckiefan'
+archivesBaseName = 'APKUploadPlugin'
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+    }
+}
+
+
+repositories {
+    jcenter()
+
+}
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+    compile 'org.json:json:20090211'
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
+    compile 'commons-lang:commons-lang:2.6'
+    runtime 'com.squareup.okhttp:okhttp:2.2.0'
+
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'junit:junit:4.12'
+}
+configurations {
+    all*.exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+}
+
+
+nexus {
+    sign = true
+    snapshotRepositoryUrl 'https://oss.sonatype.org/content/repositories/snapshots'
+    repositoryUrl 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+}
+
+modifyPom {
+    project {
+
+        name 'APK-UPLOAD-PLUGIN'
+        description 'apk文件上传发布插件，目前仅支持蒲公英。 by Chuckiefan'
+        url 'https://github.com/chuckiefan/Apk-Upload-Plugin'
+        scm {
+            url 'https://github.com/chuckiefan/Apk-Upload-Plugin.git'
+            connection 'scm:git@github.com:chuckiefan/Apk-Upload-Plugin.git'
+            developerConnection 'scm:git@github.com:chuckiefan/Apk-Upload-Plugin.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 3.0'
+                url 'http://www.apache.org/licenses/LICENSE-3.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                name 'chuckiefan'
+                email 'wangke_se@163.com'
+
+            }
+        }
+    }
+}
