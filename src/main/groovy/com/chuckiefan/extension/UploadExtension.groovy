@@ -1,4 +1,4 @@
-package com.github.chuckiefan.extension
+package com.chuckiefan.extension
 
 /**
  * Created by wangke on 2017/3/15.

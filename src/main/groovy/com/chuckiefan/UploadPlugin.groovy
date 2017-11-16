@@ -1,7 +1,7 @@
-package com.github.chuckiefan
+package com.chuckiefan
 
-import com.github.chuckiefan.extension.UploadExtension
-import com.github.chuckiefan.task.UploadTask
+import com.chuckiefan.extension.UploadExtension
+import com.chuckiefan.task.UploadTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

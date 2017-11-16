@@ -1,4 +1,4 @@
-package com.github.chuckiefan.task
+package com.chuckiefan.task
 
 import com.squareup.okhttp.MediaType
 import com.squareup.okhttp.MultipartBuilder

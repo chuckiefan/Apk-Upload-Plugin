@@ -1,5 +1,5 @@
-import com.github.chuckiefan.UploadPlugin
-import com.github.chuckiefan.task.UploadTask
+import com.chuckiefan.UploadPlugin
+import com.chuckiefan.task.UploadTask
 import org.junit.Test
 import org.gradle.testfixtures.ProjectBuilder
 import org.gradle.api.Project
